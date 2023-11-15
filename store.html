@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thrift Store</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: #ff007f;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+            color: #ff007f;
+            background-color: #fff;
+            border: none;
+            border-radius: 0;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: white;
+            background-color: #ff007f;
+            border: none;
+        }
+
+        .counter-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .counter-card {
+            text-align: center;
+            background-color: #ff007f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            margin-top: 10px;
+            padding: 20px;
+        }
+
+        .counter-card h5 {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .counter-card .counter {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logout-button {
+            background-color: #ff007f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        .logout-button:hover {
+            background-color: #d60073;
+        }
+        footer {
+            background-color: #f5f5f5; /* Light background color */
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="container counter-container mt-4">
+            <div class="counter-card">
+                <h5>Total Pieces</h5>
+                <p class="counter counter-total">500</p>
+            </div>
+            <div class="counter-card">
+                <h5>Pieces to Ship</h5>
+                <p class="counter counter-ship">100</p>
+            </div>
+            <div class="counter-card">
+                <h5>Pieces to Sell</h5>
+                <p class="counter counter-sell">400</p>
+            </div>
+        </div>
+        <div class="container">
+        <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#history" data-toggle="tab">History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#ship" data-toggle="tab">Items to Ship</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#status" data.toggle="tab">Item Status</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content container mt-3">
+            <div class="tab-pane fade show active" id="history">
+                <p><strong>Shipping History:</strong></p>
+                <ul>
+                    <li>
+                        Shipped 20 vintage dresses to Customer A on 10/15/2023.
+                        <br>
+                        Items Shipped: 
+                        <ul>
+                            <li>Vintage Floral Dress</li>
+                            <li>Retro Polka Dot Dress</li>
+                        </ul>
+                        Shipping Date: 10/15/2023
+                        <br>
+                        Status: Shipped
+                    </li>
+                    <li>
+                        Added 30 new items to the store on 10/14/2023.
+                        <br>
+                        Items Added: 
+                        <ul>
+                            <li>Vintage Denim Jacket</li>
+                            <li>Vintage Leather Boots</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Received 15 leather jackets from Supplier X on 10/12/2023.
+                        <br>
+                        Items Received: 
+                        <ul>
+                            <li>Leather Jacket - Model A</li>
+                            <li>Leather Jacket - Model B</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="ship">
+                <p><strong>Items to Ship:</strong></p>
+                <ul>
+                    <li>
+                        Customer B - Order #1234
+                        <br>
+                        Items to Ship: 
+                        <ul>
+                            <li>Retro Polka Dot Dress</li>
+                        </ul>
+                        Shipping Date: 10/16/2023
+                        <br>
+                        Status: Pending
+                    </li>
+                    <li>
+                        Customer C - Order #5678
+                        <br>
+                        Items to Ship: 
+                        <ul>
+                            <li>Vintage Denim Jacket - Model C</li>
+                        </ul>
+                        Shipping Date: 10/18/2023
+                        <br>
+                        Status: Pending
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="status">
+                <p><strong>Item Status:</strong></p>
+                <ul>
+                    <li>
+                        Vintage Denim Jacket - Model C
+                        <br>
+                        Status: Available
+                    </li>
+                    <li>
+                        Retro Polka Dot Dress
+                        <br>
+                        Status: Available
+                    </li>
+                    <li>
+                        Leather Jacket - Model B
+                        <br>
+                        Status: Available
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="btn logout-button" onclick="logout()">Log Out</button>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ALP'SThriftCore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- JavaScript for number counters -->
+    <script>
+        function startCounter(target, end) {
+            let count = 0;
+            const counter = document.querySelector(target);
+            const interval = setInterval(() => {
+                counter.textContent = count;
+                count += 5; // Change the increment value as needed
+                if (count >= end) {
+                    counter.textContent = end;
+                    clearInterval(interval);
+                }
+            }, 20); // Adjust the interval as needed
+        }
+
+        // Start the counters when the document is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            startCounter('.counter-total', 500); // Total Pieces
+            startCounter('.counter-ship', 100); // Pieces to Ship
+            startCounter('.counter-sell', 400); // Pieces to Sell
+        });
+
+        function logout() {
+            alert("Logging Out");
+            // Redirect to {{ url_for('signin') }}
+            window.location.href = "{{ url_for('signin') }}";
+        }
+    </script>
+</body>
+</html>
