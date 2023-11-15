@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags and CSS links -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="y2k.css"> 
+    <title>Y2K Aesthetic</title>
+    <style>
+      
+body {
+    background-color: #BBD0FF; 
+    color: #fde4cf; 
+}
+
+.jumbotron {
+    background: linear-gradient(45deg, #b9fbc0, #98f5e1, #f1c0e8, #ffcfcd, #8eecf5); /* Gradient background for jumbotron */
+    color: #ffffff; 
+}
+
+.card {
+    background-color: #fde4cf; 
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.card-title {
+    color: #BBD0FF; 
+}
+
+.btn-primary {
+    background-color: #a3c4f3;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #fbf8cc; 
+}
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="container">
+            <a class="navbar-brand" href="#">ThriftCore</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                        </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                        </li>
+                </ul>    
+                <ul class="navbar-nav mr-auto"> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                    </li>
+                </ul>
+              
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('wishlist') }}">Wishlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('cart') }}">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                </ul> 
+                <ul class="navbar-nav ml-auto">    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="jumbotron text-center mb-5" style="background-image: url('https://wallpapercave.com/wp/wp7382962.jpg'); background-size: cover; background-position: center; height: 400px;">
+        <h1 class="display-4">Y2K Fashion</h1>
+        <p class="lead">Step back in time with our retro Y2K-inspired fashion collection.</p>
+    
+        <!-- Collapse button for Y2K Fashion -->
+        <div class="container mt-5">
+            <!-- Bootstrap Collapse Button -->
+            <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseY2K">
+                About Y2K Aesthetic
+            </button>
+    
+            <!-- Bootstrap Collapse Content -->
+            <div id="collapseY2K" class="collapse mt-3">
+                <div class="card card-body">
+                    <p>Travel back to the early 2000s with our Y2K-inspired fashion. Get the look with shiny metallics, butterfly hair clips, mini skirts, and more. Embrace the nostalgia of the turn of the century in every outfit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            
+    
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="sortDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                SORT BY
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                                <li><a class="dropdown-item" href="#">NEWEST ARRIVALS</a></li>
+                                <li><a class="dropdown-item" href="#">LOWEST PRICE</a></li>
+                                <li><a class="dropdown-item" href="#">HIGHEST PRICE</a></li>
+                            </ul>
+                        </li>
+        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="filterDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                FILTER
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                                <li><a class="dropdown-item" href="#">AESTHETIC</a></li>
+                                <li><a class="dropdown-item" href="#">COLOR</a></li>
+                                <li><a class="dropdown-item" href="#">SIZE</a></li>
+                                <li><a class="dropdown-item" href="#">MATERIAL</a></li>
+                                <li><a class="dropdown-item" href="#">TYPE</a></li>
+                                <li><a class="dropdown-item" href="#">GENDER</a></li>
+                                <li><a class="dropdown-item" href="#">PRICE RANGE</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>   
+
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+    
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('cottagecore') }}">Cottagecore</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('goth') }}">Goth</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('vintage') }}">Vintage</a>
+                        </li>
+                    </ul>    
+                </div>
+    
+            <!-- Right-aligned search bar -->
+            <form class="form-inline ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-lg-4 mb-4">
+                <div class="card p-4">
+                    <img src="https://imgs.search.brave.com/LFoWZXd818vUcfuzDSJfuzbHSweWo59CkNy7T-AKZXI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pNS53/YWxtYXJ0aW1hZ2Vz/LmNvbS9hc3IvOGQ3/NjQ2M2YtOGE5MS00/NzE4LWFjZjAtMzRi/NDZhNDU1Njk0LjI3/ZTVmOTViZTc2YTVj/NGEzMjMxOGQ2YzIz/NDg3YmQxLmpwZWc_/b2RuSGVpZ2h0PTYx/MiZvZG5XaWR0aD02/MTImb2RuQmc9RkZG/RkZG"> <h5>Shiny Sequin Top</h5>
+                    <p class="card-text">A sparkling sequin top for a glam Y2K look.</p>
+                    <p class="card-text"><strong>Price:</strong>Rs.2,999</p>
+                    <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-lg-4 mb-4">
+                <div class="card p-4">
+                    <img src="https://imgs.search.brave.com/nfBUPHGWCBHB8pTcKPESPyN6cCRZ3vlDZV_G8BmaOT8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzM5OTg0NzU1L2Mv/MTE5Ni8xMTk2LzAv/MTIyL2lsL2MxZWNk/YS80NDgxNzUzODQy/L2lsXzYwMHg2MDAu/NDQ4MTc1Mzg0Ml9w/dGExLmpwZw" class="card-img-top mb-3" alt="Product 2">
+                    <h5 class="card-title">Denim Mini Skirt</h5>
+                    <p class="card-text">A trendy denim mini skirt for a playful Y2K style.</p>
+                    <p class="card-text"><strong>Price:</strong> Rs.1,799</p>
+                    <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-lg-4 mb-4">
+                <div class="card p-4">
+                    <img src="https://imgs.search.brave.com/kDhxMxaS4XdEWq6EufjMKSESfy2XrFx1sY6wd88DV-Y/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/aW5zdHlsZS5jb20v/dGhtYi95eEkySWFY/QlFDYmw0MVhWRzVO/blhFUFpzMTA9L2Zp/dC1pbi8xNTAweDEw/MDAvZmlsdGVyczpu/b191cHNjYWxlKCk6/bWF4X2J5dGVzKDE1/MDAwMCk6c3RyaXBf/aWNjKCkvc3VwZXJn/YS0yNzkwLXBsYXRm/b3JtLXNuZWFrZXJz/LTE4OGZkYTdjMjk1/MjQ1ZWE5NWEzODcw/N2U4M2U1OWQ5Lmpw/Zw" class="card-img-top mb-3" alt="Product 3">
+                    <h5 class="card-title">Platform Sneakers</h5>
+                    <p class="card-text">Chunky platform sneakers for a Y2K retro vibe.</p>
+                    <p class="card-text"><strong>Price:</strong> Rs.3,499</p>
+                    <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>About Us</h3>
+                    <p>Welcome to ThriftCore, where timeless elegance meets contemporary style. We curate a collection of vintage clothing and accessories, carefully handpicked to reflect the essence of eras gone by. Our passion for sustainable fashion and unique pieces drives us to bring you the finest selection of pre-loved treasures. Explore our store and discover the beauty of the past reimagined for the present.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions, suggestions, or just want to say hello, feel free to reach out to us.</p>
+                    <p>Email: info@thriftcore.com</p>
+                    <p>Phone: +91 (123) 456-7890</p>
+                    <p>Follow us on social media:</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Facebook</a></li>
+                        <li class="list-inline-item"><a href="#">Twitter</a></li>
+                        <li class="list-inline-item"><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <p>&copy; 2023 ALP'SThriftCore. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
