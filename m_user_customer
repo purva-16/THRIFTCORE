@@ -1,0 +1,12 @@
+USE [online_shopping]
+GO
+
+INSERT INTO [dbo].[m_user_customer]
+           ([user_name]
+           ,[mobile_no]
+           ,[password])
+     VALUES
+           (<user_name, nvarchar(50),>
+           ,<mobile_no, nchar(10),>
+           ,<password, nvarchar(50),>)
+GO
