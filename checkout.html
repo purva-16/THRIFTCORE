@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Thrift Core</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Add your custom CSS styles for the checkout page here */
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">ThriftCore</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Checkout Content -->
+    <div class="container my-5">
+        <h2 class="mb-4">Checkout</h2>
+
+        <!-- Shipping Information -->
+        <div class="mb-4">
+            <h3>Shipping Information</h3>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="Your Address">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" id="city" placeholder="Your City">
+                </div>
+                <div class="form-group">
+                    <label for="zip">Zip Code</label>
+                    <input type="text" class="form-control" id="zip" placeholder="Zip Code">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Shipping Information</button>
+            </form>
+        </div>
+
+        <!-- Order Summary -->
+        <div>
+            <h3>Order Summary</h3>
+            <!-- Display the items from the cart -->
+            <ul>
+                <li>Product 1: Rs. 399</li>
+                <li>Product 2: Rs. 499 </li>
+            </ul>
+            <p>Total: Rs. 898</p>
+        </div>
+
+        <!-- Payment Information -->
+        <div class="mt-4">
+            <h3>Payment Information</h3>
+            <form>
+                <div class="form-group">
+                    <label for="card">Card Number</label>
+                    <input type="text" class="form-control" id="card" placeholder="Card Number">
+                </div>
+                <div class="form-group">
+                    <label for="expiration">Expiration Date</label>
+                    <input type="text" class="form-control" id="expiration" placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" class="form-control" id="cvv" placeholder="CVV">
+                </div>
+                <button type="submit" class="btn btn-primary">Complete Purchase</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>About Us</h3>
+                    <p>Welcome to ThriftCore, where timeless elegance meets contemporary style. We curate a collection of vintage clothing and accessories, carefully handpicked to reflect the essence of eras gone by. Our passion for sustainable fashion and unique pieces drives us to bring you the finest selection of pre-loved treasures. Explore our store and discover the beauty of the past reimagined for the present.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions, suggestions, or just want to say hello, feel free to reach out to us.</p>
+                    <p>Email: info@thriftcore.com</p>
+                    <p>Phone: +91 (123) 456-7890</p>
+                    <p>Follow us on social media:</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Facebook</a></li>
+                        <li class="list-inline-item"><a href="#">Twitter</a></li>
+                        <li class="list-inline-item"><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <p>&copy; 2023 ALP'SThriftCore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS scripts here (jQuery and Bootstrap JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
