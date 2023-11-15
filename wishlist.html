@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - Thriftcore</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="wishlist.css"> 
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">ThriftCore</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('cart') }}">Cart</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">My Wishlist</h2>
+        <div class="row">
+            <!-- Example wishlist items -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://imgs.search.brave.com/DtqmluK_jeVi8j2Wqyjw_Fz72h8NgqsUASOZwP9Xt0w/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzIyODUzNjY3L3Iv/aWwvZDAyODJhLzI4/NDE2MDIwNjYvaWxf/NjAweDYwMC4yODQx/NjAyMDY2X2ZhOHIu/anBn" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Vintage Denim Jacket</h5>
+                        <p class="card-text">Rs.399</p>
+                        <button class="btn btn-danger" onclick="removeItem(this)">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 Thriftcore</p>
+    </footer>
+    
+    <script src="wishlist.js"></script> <!-- Include the JavaScript file -->
+    <script src="bootstrap.js"></script>
+    <script src="main.js"></script>
+    </body>
+    </html>
+    
