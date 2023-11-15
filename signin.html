@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In As</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add your custom CSS here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Custom CSS for background image, font, and color scheme */
+        body {
+            background: url('background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial', sans-serif; /* Change the font to Arial */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust background color opacity */
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .card-title {
+            color: #ff007f; /* Change the card title color */
+            font-size: 1.25rem; /* Increase the font size */
+        }
+        .btn-primary {
+            background-color: #ff007f; /* Change the primary button color */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #d60073; /* Change the primary button color on hover */
+        }
+        h1 {
+            color: #ff007f; /* Change the heading color */
+        }
+        .card-text {
+            color: #000; /* Keep the text black */
+            font-size: 0.9rem; /* Decrease the font size */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Sign In</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://imgs.search.brave.com/2TN9Jjh1AcsXWOyv7jJzsdnRXCNQxnwuXOxnvsVAfcM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/Z2xhbS5jb20vaW1n/L2dhbGxlcnkvdGlw/cy1mb3Itc3R5bGlu/Zy1hLWNsb3RoaW5n/LXJhY2stZm9yLXRo/ZS1wZXJmZWN0LWFl/c3RoZXRpYy9pbnRy/by0xNjc4Mzk0MTY1/LmpwZw" class="card-img-top" alt="Buyer Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Buyer</h5>
+                        <a href="{{ url_for('index') }}" class="btn btn-primary">Sign In</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://imgs.search.brave.com/r-Dat4JdRudM68YlqOKzHew5_mBDWw3ALWsrWVs_eKs/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/YWVzdGhldGljcm9v/bWNvcmUuY29tL2Nk/bi9zaG9wL3Byb2R1/Y3RzLzdfY2I5YTZm/NGItNjk3Mi00OWQz/LWJjZGUtYTk5Zjkz/MmUzMjZmXzgwMHgu/anBnP3Y9MTYyOTM4/NjEwNg" class="card-img-top" alt="Seller Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Seller</h5>
+                        <p class="card-text"></p>
+                        <a href="{{ url_for('seller') }}" class="btn btn-primary">Sign In</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://imgs.search.brave.com/iwwYY8wOl4ZRZt53b4q1obhd7Iwdinvri2sUO9U9uyA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/dGhlc3BydWNlLmNv/bS90aG1iL1RzaEJX/WlllRDlRaU1DSU5F/SC02TUo4TVVpZz0v/MTUwMHgwL2ZpbHRl/cnM6bm9fdXBzY2Fs/ZSgpOm1heF9ieXRl/cygxNTAwMDApOnN0/cmlwX2ljYygpL2Ns/b3RoaW5nLXJhY2tz/LWdyb3VwLUxldGlj/aWEtQWxtZWlkYS1w/aG90by0wNC5qcGct/OTM2NjJlMGI2NDdh/NDQzZjgzYmY4MDAx/MzA4YzExZmQuanBn" class="card-img-top" alt="Store Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Store</h5>
+                        <p class="card-text"></p>
+                        <a href="{{ url_for('store') }}" class="btn btn-primary">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Bootstrap JS and jQuery scripts if needed -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
