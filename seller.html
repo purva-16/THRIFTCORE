@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Page</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: #ff007f;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+            color: #ff007f;
+            background-color: #fff;
+            border: none;
+            border-radius: 0;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: white;
+            background-color: #ff007f;
+            border: none;
+        }
+
+        .counter-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .counter-card {
+            text-align: center;
+            background-color: #ff007f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            margin-top: 10px;
+            padding: 20px;
+        }
+
+        .counter-card h5 {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .counter-card .counter {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logout-button {
+            background-color: #ff007f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        .logout-button:hover {
+            background-color: #d60073;
+        }
+
+        .item-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .item-image {
+            max-width: 100px;
+        }
+
+        .item-status {
+            font-weight: bold;
+        }
+
+        .available-item-status {
+            color: #4CAF50; /* Green for 'Available' status */
+        }
+
+        .sold-item-status {
+            color: #FF5733; /* Red for 'Sold' status */
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container counter-container mt-4">
+            <div class="counter-card">
+                <h5>Total Items Added</h5>
+                <p class="counter counter-total">5</p>
+            </div>
+            <div class="counter-card">
+                <h5>Items Sold</h5>
+                <p class="counter counter-sold">2</p>
+            </div>
+            <div class="counter-card">
+                <h5>Items Available</h5>
+                <p class="counter counter-available">3</p>
+            </div>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#all-items" data-toggle="tab">All Items</a>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="#add-item" data-toggle="tab">Add Item</a>
+            </li>
+           
+            <li class="nav-item">
+                <a class="nav-link" href="#available-items" data-toggle="tab">Available Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#sold-items" data-toggle="tab">Sold Items</a>
+            </li>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content container mt-3">
+        <div class="tab-pane fade show active" id="all-items">
+            <p><strong>All Items:</strong></p>
+            <div class="item-card">
+                <p><strong>Item ID:</strong> 1</p>
+                <img src="item1.jpg" class="item-image" alt="Item 1">
+                <p><strong>Size:</strong> Medium</p>
+                <p><strong>Aesthetic:</strong> Vintage</p>
+                <p><strong>Description:</strong> This is a beautiful vintage dress.</p>
+                <p><strong>Material:</strong> Cotton</p>
+                <p><strong>Price (in Rupees):</strong> 1500</p>
+                <p><strong>Status:</strong> <span class="item-status available-item-status">Available</span></p>
+            </div>
+            <div class="item-card">
+                <p><strong>Item ID:</strong> 2</p>
+                <img src="item2.jpg" class="item-image" alt="Item 2">
+                <p><strong>Size:</strong> Small</p>
+                <p><strong>Aesthetic:</strong> Bohemian</p>
+                <p><strong>Description:</strong> A lovely bohemian blouse for your collection.</p>
+                <p><strong>Material:</strong> Silk</p>
+                <p><strong>Price (in Rupees):</strong> 1800</p>
+                <p><strong>Status:</strong> <span class="item-status available-item-status">Available</span></p>
+            </div>
+            <div class="item-card">
+                <p><strong>Item ID:</strong> 3</p>
+                <img src="item3.jpg" class="item-image" alt="Item 3">
+                <p><strong>Size:</strong> Large</p>
+                <p><strong>Aesthetic:</strong> Classic</p>
+                <p><strong>Description:</strong> A classic men's suit for any occasion.</p>
+                <p><strong>Material:</strong> Wool</p>
+                <p><strong>Price (in Rupees):</strong> 3500</p>
+                <p><strong>Status:</strong> <span class="item-status available-item-status">Available</span></p>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="item-status">
+            <!-- Item status content (to be added) -->
+        </div>
+        <div class="tab-pane fade" id="add-item">
+            <p><strong>Add Item:</strong></p>
+            <div class="form-container">
+                <form id="addItemForm">
+                    <div class="form-group">
+                        <label for="itemImage" class="form-label">Image URL:</label>
+                        <input type="text" class="form-control" id="itemImage" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemSize" class="form-label">Size:</label>
+                        <input type="text" class="form-control" id="itemSize" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemAesthetic" class="form-label">Aesthetic:</label>
+                        <input type="text" class="form-control" id="itemAesthetic" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemDescription" class="form-label">Description:</label>
+                        <textarea class="form-control" id="itemDescription" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemMaterial" class="form-label">Material:</label>
+                        <input type="text" class="form-control" id="itemMaterial" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemPrice" class="form-label">Price (in Rupees):</label>
+                        <input type="number" class="form-control" id="itemPrice" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Item</button>
+                </form>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="edit-details">
+            <p><strong>Edit Details:</strong></p>
+            <!-- Include a form to edit item details here -->
+        </div>
+        <div class="tab-pane fade" id="available-items">
+            <p><strong>Available Items:</strong></p>
+            <div class="item-card">
+                <p><strong>Item ID:</strong> 6</p>
+                <img src="item6.jpg" class="item-image" alt="Item 6">
+                <p><strong>Size:</strong> Small</p>
+                <p><strong>Aesthetic:</strong> Modern</p>
+                <p><strong>Description:</strong> A modern shirt for any style-conscious individual.</p>
+                <p><strong>Material:</strong> Cotton</p>
+                <p><strong>Price (in Rupees):</strong> 2500</p>
+                <p><strong>Status:</strong> <span class="item-status available-item-status">Available</span></p>
+            </div>
+            <div class="item-card">
+                <p><strong>Item ID:</strong> 7</p>
+                <img src="item7.jpg" class="item-image" alt="Item 7">
+                <p><strong>Size:</strong> Medium</p>
+                <p><strong>Aesthetic:</strong> Vintage</p>
+                <p><strong>Description:</strong> A vintage skirt with a touch of elegance.</p>
+                <p><strong>Material:</strong> Silk</p>
+                <p><strong>Price (in Rupees):</strong> 2800</p>
+                <p><strong>Status:</strong> <span class="item-status available-item-status">Available</span></p>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="sold-items">
+            <p><strong>Sold Items:</strong></p>
+            <div class="item-card">
+                <p><strong>Item ID:</strong> 4</p>
+                <img src="item4.jpg" class="item-image" alt="Item 4">
+                <p><strong>Size:</strong> Small</p>
+                <p><strong>Aesthetic:</strong> Modern</p>
+                <p><strong>Description:</strong> A modern shirt for any style-conscious individual.</p>
+                <p><strong>Material:</strong> Cotton</p>
+                <p><strong>Price (in Rupees):</strong> 2500</p>
+                <p><strong>Status:</strong> <span class="item-status sold-item-status">Sold</span></p>
+            </div>
+            <div class="item-card">
+                <p><strong>Item ID:</strong> 5</p>
+                <img src="item5.jpg" class="item-image" alt="Item 5">
+                <p><strong>Size:</strong> Medium</p>
+                <p><strong>Aesthetic:</strong> Vintage</p>
+                <p><strong>Description:</strong> A vintage skirt with a touch of elegance.</p>
+                <p><strong>Material:</strong> Silk</p>
+                <p><strong>Price (in Rupees):</strong> 2800</p>
+                <p><strong>Status:</strong> <span class="item-status sold-item-status">Sold</span></p>
+            </div>
+        </div>
+    </div>
+    <button class="btn logout-button" onclick="logout()">Log Out</button>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ALP'SThriftCore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add Bootstrap JS and jQuery scripts if needed -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript for number counters -->
+    <script>
+        function startCounter(target, end) {
+            let count = 0;
+            const counter = document.querySelector(target);
+            const interval = setInterval(() => {
+                counter.textContent = count;
+                count += 5; // Change the increment value as needed
+                if (count >= end) {
+                    counter.textContent = end;
+                    clearInterval(interval);
+                }
+            }, 20); // Adjust the interval as needed
+        }
+
+        // Start the counters when the document is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            startCounter('.counter-total', 5); // Total Items Added
+            startCounter('.counter-sold', 2); // Items Sold
+            startCounter('.counter-available', 5 - 2); // Items Available
+        });
+
+        function logout() {
+            alert("Logging Out");
+            // Redirect to {{ url_for('signin') }}
+            window.location.href = "{{ url_for('signin') }}";
+        }
+    </script>
+</body>
+</html>
