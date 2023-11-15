@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Shopping Cart - Thrift Core</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
+    <style>
+        /* CSS for Shopping Cart Page */
+        .cart {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-item-image {
+            max-width: 80px;
+            margin-right: 20px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .cart-item-price {
+            font-size: 16px;
+            color: #e22d2d;
+        }
+
+        .cart-item-quantity {
+            font-size: 16px;
+        }
+
+        .cart-total {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .cart-action-button {
+            background-color: #e22d2d;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cart-action-button:hover {
+            background-color: #ff5656;
+        }
+    </style>
+</head>
+
+<body>   
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">ThriftCore</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Shopping Cart Content -->
+<div class="container my-5 cart">
+    <h2 class="mb-4">Shopping Cart</h2>
+
+    <!-- Cart Items -->
+    <div class="cart-item" data-price="399">
+        <img src="https://imgs.search.brave.com/DtqmluK_jeVi8j2Wqyjw_Fz72h8NgqsUASOZwP9Xt0w/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzIyODUzNjY3L3Iv/aWwvZDAyODJhLzI4/NDE2MDIwNjYvaWxf/NjAweDYwMC4yODQx/NjAyMDY2X2ZhOHIu/anBn" alt="Product 1" class="cart-item-image">
+        <div class="cart-item-details">
+            <h3 class="cart-item-title">Vintage Denim Jacket</h3>
+            <p class="cart-item-price">Rs. 399</p>
+            <button class="btn btn-danger remove-item">Remove</button>
+        </div>
+    </div>
+
+    <div class="cart-item" data-price="499">
+        <img src="https://imgs.search.brave.com/jxLxg-WULOWZwww5Ah4GdcZwILgelrI-pjkAGaOr768/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/Lzc5NTU3NDQvYy8x/NTAwLzE1MDAvMC8w/L2lsL2JiYzA2MS81/MzQ0NzM4Mzc3L2ls/XzYwMHg2MDAuNTM0/NDczODM3N19xandx/LmpwZw" alt="Product 2" class="cart-item-image">
+        <div class="cart-item-details">
+            <h3 class="cart-item-title">Vintage White Shirt</h3>
+            <p class="cart-item-price">Rs. 499</p>
+            <button class="btn btn-danger remove-item">Remove</button>
+        </div>
+    </div>
+
+    <!-- Cart Total -->
+    <div class="cart-total">Total: Rs. 898</div>
+
+    <!-- Checkout Button -->
+    <a href="{{ url_for('checkout') }}" class="cart-action-button">Proceed to Checkout</a>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2023 Thrift Couture</p>
+</footer>
+
+<!-- Bootstrap JS scripts here (jQuery and Bootstrap JS) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // JavaScript to remove items and calculate total
+    document.addEventListener('DOMContentLoaded', function () {
+        const removeButtons = document.querySelectorAll('.remove-item');
+        const cartTotal = document.querySelector('.cart-total');
+
+        // Add event listeners to remove buttons
+        removeButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const item = this.closest('.cart-item');
+                const itemPrice = parseInt(item.getAttribute('data-price'));
+                item.remove();
+                updateTotal(-itemPrice);
+            });
+        });
+
+        // Function to update the total price
+        function updateTotal(change) {
+            const currentTotal = parseInt(cartTotal.textContent.replace('Total: Rs. ', ''));
+            const newTotal = currentTotal + change;
+            cartTotal.textContent = `Total: Rs. ${newTotal}`;
+        }
+    });
+</script>
+</body>
+</html>
