@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThriftCore</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-custom.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">ThriftCore</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('wishlist') }}">Wishlist</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('cart') }}">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
+           </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="{{ url_for('vintage') }}">
+            <img src="https://wallpapers.com/images/hd/vintage-aesthetic-postcard-ofemz6ibqag1yd70.jpg" class="d-block w-100" alt="Carousel Slide 1">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Stylish Vintage Dresses</h5>
+                <p>Explore our collection of beautifully preserved vintage dresses that bring back the charm of the past.</p>
+            </div>
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="{{ url_for('cottagecore') }}">
+            <img src="https://marketplace.canva.com/EAFY_wsEbIM/1/0/1600w/canva-pink-gradient-comic-anime-collage-desktop-wallpaper-FkzDjIhyt8Y.jpg" class="d-block w-100" alt="Carousel Slide 2">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Trendy Cottagecore Essentials</h5>
+                <p>Discover cozy cottagecore essentials that blend nature-inspired aesthetics with modern comfort.</p>
+            </div>
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="{{ url_for('goth') }}">
+            <img src="https://c4.wallpaperflare.com/wallpaper/477/913/211/spooky-castle-black-castle-art-print-wallpaper-preview.jpg" class="d-block w-100" alt="Carousel Slide 3">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Gothic Fashion Statement</h5>
+                <p>Make a bold statement with our gothic fashion collection, featuring unique and edgy styles.</p>
+            </div>
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="{{ url_for('y2k') }}">
+            <img src="https://static.vecteezy.com/system/resources/previews/013/948/590/original/wave-y2k-background-for-retro-design-liquid-groovy-marble-pink-background-purple-y2k-pattern-in-modern-style-pink-psychedelic-retro-wave-wallpaper-vector.jpg" class="d-block w-100" alt="Carousel Slide 4">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Y2K Retro Vibes</h5>
+                <p>Embrace the nostalgia of the 2000s with our Y2K retro clothing and accessories.</p>
+            </div>
+            </a>
+        </div>  
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="sortDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            SORT BY
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                            <li><a class="dropdown-item" href="#">NEWEST ARRIVALS</a></li>
+                            <li><a class="dropdown-item" href="#">LOWEST PRICE</a></li>
+                            <li><a class="dropdown-item" href="#">HIGHEST PRICE</a></li>
+                        </ul>
+                    </li>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="filterDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            FILTER
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                            <li><a class="dropdown-item" href="#">AESTHETIC</a></li>
+                            <li><a class="dropdown-item" href="#">COLOR</a></li>
+                            <li><a class="dropdown-item" href="#">SIZE</a></li>
+                            <li><a class="dropdown-item" href="#">MATERIAL</a></li>
+                            <li><a class="dropdown-item" href="#">TYPE</a></li>
+                            <li><a class="dropdown-item" href="#">GENDER</a></li>
+                            <li><a class="dropdown-item" href="#">PRICE RANGE</a></li>
+                        </ul>
+                    </li>
+                </ul>
+        </div>        
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('cottagecore') }}">Cottagecore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('goth') }}">Goth</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('y2k') }}">Y2k</a>
+                    </li>
+                </ul>
+            </div>
+
+        <!-- Right-aligned search bar -->
+        <form class="form-inline ml-auto">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Featured Products</h2>
+    <div class="row">
+        <!-- Product 1 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+                <img src="https://imgs.search.brave.com/DtqmluK_jeVi8j2Wqyjw_Fz72h8NgqsUASOZwP9Xt0w/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzIyODUzNjY3L3Iv/aWwvZDAyODJhLzI4/NDE2MDIwNjYvaWxf/NjAweDYwMC4yODQx/NjAyMDY2X2ZhOHIu/anBn" class="card-img-top" alt="Product 1">
+                <div class="card-body">
+                    <h5 class="card-title">Vintage Denim Jacket</h5>
+                    <p class="card-text">A Classic Denim Jacket.</p>
+                    <p class="card-text"><strong>Price:</strong> ₹399</p>
+                    <span class="badge bg-secondary text-white">Vintage</span>
+                    <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+                <img src="https://imgs.search.brave.com/HyIyryASQDybEdJUaol9vinBND6Sk4ZSCDQladmBmkk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzM5MzM0MzQzL2Mv/MjA0OC8yMDQ4LzAv/MC9pbC82YzQxZGQv/NDY2MDM2OTA0OS9p/bF82MDB4NjAwLjQ2/NjAzNjkwNDlfcTZx/Ny5qcGc" class="card-img-top" alt="Product 2">
+                <div class="card-body">
+                    <h5 class="card-title">Classic Leather Jacket</h5>
+                    <p class="card-text">A timeless leather jacket for a vintage edge.</p>
+                    <p class="card-text"><strong>Price:</strong> ₹4,999</p>
+                    <span class="badge bg-secondary text-white">Vintage</span>
+                    <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        <!-- Product 4 - Cottagecore Aesthetic -->
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card">
+        <img src="https://imgs.search.brave.com/f_4rTd9pkguhZ2IN-EXjjNoAzEzpPxjMeLfgQlHD7Ck/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzE0ODc0MzcyL2Mv/MTY4OC8xNjg4LzAv/MjY0L2lsLzQ3MThl/Ni8yMTM3ODQ1MDY4/L2lsXzYwMHg2MDAu/MjEzNzg0NTA2OF9k/em9sLmpwZw" class="card-img-top" alt="Product 4">
+        <div class="card-body">
+            <h5 class="card-title">Floral Tea Dress</h5>
+            <p class="card-text">A delightful floral tea dress for your cottagecore collection.</p>
+            <p class="card-text"><strong>Price:</strong> ₹2,299</p>
+            <span class="badge bg-success">Cottagecore</span>
+            <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+        </div>
+    </div>
+</div>
+
+<!-- Product 4 - Goth Aesthetic -->
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card">
+        <img src="https://imgs.search.brave.com/dnGbLqmBGYapQWOf10s6xregSYik4UdC1HqwPU20fHU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzM4NjMyNjgzL2Mv/MjI1MC8yMjUwLzAv/MjExL2lsL2Q5MWZj/NS80NzgyNjg5NDQ2/L2lsXzYwMHg2MDAu/NDc4MjY4OTQ0Nl8x/MmpxLmpwZw" class="card-img-top" alt="Product 4">
+        <div class="card-body">
+            <h5 class="card-title">Punk Leather Jacket</h5>
+            <p class="card-text">A punk-style leather jacket for a gothic look.</p>
+            <p class="card-text"><strong>Price:</strong> ₹2,799</p>
+            <span class="badge bg-dark text-white">Goth</span>
+            <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card">
+        <img src="https://imgs.search.brave.com/d3QIaMqxjK4anrX3o2FQz_T3tpS_GugwFPT-ILerKn0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9wcmV2/aWV3LnJlZGQuaXQv/b21lZ2EtanVzdC1w/aWNrZWQtdXAtbXkt/Zmlyc3QtdmludGFn/ZS13YXRjaC12MC02/NnR2Y3llZzdrc2Ix/LmpwZz93aWR0aD02/NDAmY3JvcD1zbWFy/dCZhdXRvPXdlYnAm/cz0xOWI3YzcwMDQ2/MDYyYTViNWU5NGVm/OTAyNDc4NmNmNThm/Y2JmZDdi" class="card-img-top" alt="Product 4">
+        <div class="card-body">
+            <h5 class="card-title">Retro Timepiece</h5>
+            <p class="card-text">A vintage-inspired timepiece that exudes classic charm.</p>
+            <p class="card-text"><strong>Price:</strong> ₹1,999</p>
+            <span class="badge bg-secondary text-white">Vintage</span>
+            <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+        </div>
+    </div>
+</div>
+
+<!-- Product 4 - Y2K Aesthetic -->
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="card">
+        <img src="https://imgs.search.brave.com/yYDmGm7uQzbrcFnrz6jkBIAUXsxcTiqeOTURnWYkNfk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9paDEu/cmVkYnViYmxlLm5l/dC9pbWFnZS41MTY0/NTIxNTcwLjQ4NTUv/dXIsYmFja3BhY2tf/ZnJvbnQsc3F1YXJl/LDYwMHg2MDAudTIu/anBn" class="card-img-top" alt="Product 4">
+        <div class="card-body">
+            <h5 class="card-title">Y2K Mini Backpack</h5>
+            <p class="card-text">A compact Y2K mini backpack to complement your retro style.</p>
+            <p class="card-text"><strong>Price:</strong> ₹1,299</p>
+            <span class="badge bg-primary">Y2K</span>
+            <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+        </div>
+    </div>
+</div>
+
+<!-- Add more products with different aesthetics as needed -->
+
+
+    </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>About Us</h3>
+                <p>Welcome to ThriftCore, where timeless elegance meets contemporary style. We curate a collection of vintage clothing and accessories, carefully handpicked to reflect the essence of eras gone by. Our passion for sustainable fashion and unique pieces drives us to bring you the finest selection of pre-loved treasures. Explore our store and discover the beauty of the past reimagined for the present.</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Contact Us</h3>
+                <p>If you have any questions, suggestions, or just want to say hello, feel free to reach out to us.</p>
+                <p>Email: info@thriftcore.com</p>
+                <p>Phone: +91 (123) 456-7890</p>
+                <p>Follow us on social media:</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Facebook</a></li>
+                    <li class="list-inline-item"><a href="#">Twitter</a></li>
+                    <li class="list-inline-item"><a href="https://instagram.com/notlakshaya?igshid=NGVhN2U2NjQ0Yg==">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4">
+        <p>&copy; 2023 ALP'SThriftCore. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
